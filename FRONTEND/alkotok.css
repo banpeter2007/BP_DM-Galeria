@@ -1,0 +1,57 @@
+body {
+        background-color: beige;
+    }
+
+.alkotok-container {
+    padding: 10px;
+    background-color: lightgrey;
+    height: auto;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.alkotok-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: beige;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        background-color: beige;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        background-color: beige;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    body {
+        background-color: beige;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    body {
+        background-color: beige;
+    }
+}
+
+@media only screen and (min-width: 1824px) {
+    body {
+        background-color: beige;
+    }
+}
