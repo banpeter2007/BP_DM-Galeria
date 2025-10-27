@@ -20,38 +20,138 @@ body {
     margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-    body {
-        background-color: beige;
+#alkoto-kepei_menu {
+    text-align: center;
+    width: 50%;
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+
+#alkoto-kepei_menu img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 8px;
+}
+
+/* --- RESZPONZÍVITÁS --- */
+
+/* Közepes kijelzők (tablet) */
+@media (max-width: 900px) {
+    .alkotok-container {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    #alkoto-kepei_menu img {
+        max-width: 250px;
     }
 }
 
-@media only screen and (min-width: 600px) {
-    body {
-        background-color: beige;
+/* Kis kijelzők (mobil) */
+@media (max-width: 600px) {
+    .alkotok-container {
+        width: 95%;
+        margin: 0 auto;
+        padding: 5px;
+    }
+
+    #alkoto-kepei_menu {
+        display: block;
+        width: 100%; /* egy oszlop */
+        padding: 5px;
+    }
+
+    #alkoto-kepei_menu img {
+        max-width: 90%;
     }
 }
 
-@media only screen and (min-width: 768px) {
-    body {
-        background-color: beige;
-    }
+/* === FELSŐ NAVIGÁCIÓ === */
+.navbar {
+    background-color: brown; /* kékes-szürke háttér */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border-bottom: olive;
 }
 
-@media only screen and (min-width: 992px) {
-    body {
-        background-color: beige;
-    }
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
-@media only screen and (min-width: 1200px) {
-    body {
-        background-color: beige;
-    }
+.navbar-menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    transition: color 0.3s ease, border-bottom 0.2s ease;
+    padding: 5px 0;
 }
 
-@media only screen and (min-width: 1824px) {
-    body {
-        background-color: beige;
+.navbar-menu li a:hover {
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+
+/* --- Hamburger ikon (mobilon) --- */
+.navbar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* --- RESZPONZÍV MENÜ --- */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .navbar-logo {
+        display: block;
+        font-weight: bold;
+    }
+
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: brown;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar-toggle {
+        display: block;
     }
 }
