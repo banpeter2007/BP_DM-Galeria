@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosár</title>
+    <link rel="stylesheet" href="kosar.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="#">Bemutatkozás</a></li>
+            <li><a href="alkotok.html">Alkotók</a></li>
+            <li><a href="elerhetosegek.html">Elérhetőségeink</a></li>
+            <li><a href="kosar.html">Kosár</a></li>
+            <li><a href="#">Profil</a></li>
+        </ul>
+        <div class="navbar-toggle" id="mobile-menu">
+            ☰
+        </div>
+    </nav>
+
+    <div class="wrap">
+    <header>
+    <h1>Kosarad</h1>
+    <div class="small">(termékek hozzáadása, mennyiség változtatás, törlés)</div>
+    </header>
+
+
+    <div class="layout">
+    <main>
+    <section class="products" id="products"></section>
+    </main>
+
+
+    <aside class="sidebar">
+    <div class="cart" id="cart">
+    <h2>Kosár (<span id="cartCount">0</span>)</h2>
+    <div class="cart-list" id="cartList">
+    <div class="empty" id="emptyMsg">A kosár üres — válassz terméket.</div>
+    </div>
+
+
+    <div class="totals">
+    <div class="small">Összesen:</div>
+    <div id="cartTotal">0 Ft</div>
+    </div>
+
+
+    <div class="actions">
+    <button id="checkoutBtn">Pénztár</button>
+    <button class="secondary" id="clearBtn">Törlés</button>
+    </div>
+    </div>
+    </aside>
+    </div>
+    </div>
+
+
+    <script src="kosar.js"></script>
+
+    <script>
+    document.getElementById("mobile-menu").addEventListener("click", function() {
+    document.querySelector(".navbar-menu").classList.toggle("active");
+    });
+    </script>
+</body>
+</html>

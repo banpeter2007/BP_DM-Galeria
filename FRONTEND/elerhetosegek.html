@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elérhetőségeink</title>
+    <link rel="stylesheet" href="elerhetosegek.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="#">Bemutatkozás</a></li>
+            <li><a href="alkotok.html">Alkotók</a></li>
+            <li><a href="elerhetosegek.html">Elérhetőségeink</a></li>
+            <li><a href="kosar.html">Kosár</a></li>
+            <li><a href="#">Profil</a></li>
+        </ul>
+        <div class="navbar-toggle" id="mobile-menu">
+            ☰
+        </div>
+    </nav>
+
+    <div class="middle-content">
+        <div id="tartalom">
+            <ul id="icons">
+                <li><a href="https://x.com"><img src="elerhetosegek_kepek/new-2023-twitter-logo-x-icon-design_1017-45418.jpg" alt="" width="40px" height="40px"></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100032786691974&locale=hu_HU"><img src="elerhetosegek_kepek/apps.30645.9007199266245907.cb06f1f9-9154-408e-b4ef-d19f2325893b.ac3b465e-4384-42a8-9142-901c0405e1bc" alt="" width="40px" height="40px"></a></li>
+                <li><a href="https://hu.pinterest.com"><img src="elerhetosegek_kepek/Pinterest-Emblem.png" alt="" width="50px" height="40px"></a></li>
+                <li><a href="https://www.instagram.com"><img src="elerhetosegek_kepek/Instagram_logo_2022.svg.webp" alt="" width="40px" height="40px"></a></li>
+            </ul>
+            <ul id="data">
+                <li id="cim">BP&DM Gallery</li>
+                <li class="faded">1023 Budapest, Apostol u. 18.</li>
+                <li id="email">jotjoaron@gmail.com</li>
+                <li class="faded">+36 30 676 7869</li>
+                <li class="faded">Munkatársaink:</li>
+                <ul>
+                    <li class="faded">    Bán Péter – üzletvezető/tulajdonos - +36 30 090 0476 </li>
+                    <li class="faded">    Dávid Marcell – üzletvezető/tulajdonos - +36 </li>
+                </ul>
+            </ul> 
+        </div>
+        <div id="map">
+            <a href="https://www.google.com/maps/place/Budapest,+Rózsadomb/@47.518611,19.0333525,3a,75y,360h,82.2t/data=!3m7!1e1!3m5!1sEFfVtrb-ui_5GfYUpGCPCw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.803705005662266%26panoid%3DEFfVtrb-ui_5GfYUpGCPCw%26yaw%3D359.99509165463326!7i16384!8i8192!4m6!3m5!1s0x4741dea9173894cd:0xc128738691e653b2!8m2!3d47.516982!4d19.0285758!16s%2Fg%2F11bc5t2zvr?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D"><img src="elerhetosegek_kepek/Képernyőkép 2025-10-28 114142.png" alt="Lokáció" title="Lokáció"></a>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById("mobile-menu").addEventListener("click", function() {
+    document.querySelector(".navbar-menu").classList.toggle("active");
+    });
+    </script>
+</body>
+</html>
