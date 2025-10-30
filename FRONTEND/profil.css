@@ -1,0 +1,191 @@
+body {
+        background-color: beige;
+    }
+
+/* === FELSŐ NAVIGÁCIÓ === */
+.navbar {
+    background-color: brown; /* kékes-szürke háttér */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border-bottom: olive;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    transition: color 0.3s ease, border-bottom 0.2s ease;
+    padding: 5px 0;
+}
+
+.navbar-menu li a:hover {
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+
+/* --- Hamburger ikon (mobilon) --- */
+.navbar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* --- RESZPONZÍV MENÜ --- */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .navbar-logo {
+        display: block;
+        font-weight: bold;
+    }
+
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: brown;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+}
+
+:root {
+  --accent:#5b8def;
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg, var(--bg), #e9f0ff);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 920px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 32px;
+  align-items: center;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(39,56,90,0.06);
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.tab.active {
+  background: linear-gradient(90deg, var(--accent), #7aa7ff);
+  color: white;
+}
+
+form { display: grid; gap: 12px; }
+
+label { font-size: 13px; color: var(--muted); }
+
+input[type=text],
+input[type=password],
+input[type=email] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6edf9;
+  background: #fbfdff;
+}
+
+.row { display: flex; gap: 8px; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn.primary { background: var(--accent); color: white; }
+.btn.ghost { background: transparent; border: 1px solid #e6edf9; }
+
+.note { font-size: 13px; color: var(--muted); }
+.error { color: #b00020; font-size: 13px; }
+.success { color: green; font-size: 13px; }
+
+.profile { display: none; }
+.profile.visible { display: block; }
+
+footer {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width:880px){
+  .container { grid-template-columns: 1fr; }
+}
