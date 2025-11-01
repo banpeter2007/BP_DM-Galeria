@@ -1,128 +1,120 @@
-// Egyszerű felhasználókezelés localStorage-ban (demó)
-const tabs = document.querySelectorAll('.tab');
-const panes = {
-  login: document.getElementById('login'),
-  register: document.getElementById('register')
-};
-const profileCard = document.getElementById('profileCard');
+// Menü megjelenítés mobilon
+document.getElementById("mobile-menu").addEventListener("click", () => {
+  document.querySelector(".navbar-menu").classList.toggle("active");
+});
 
-tabs.forEach(t => t.addEventListener('click', () => {
-  tabs.forEach(x => x.classList.remove('active'));
-  t.classList.add('active');
-  const which = t.dataset.tab;
-  for (const k in panes) panes[k].style.display = (k === which) ? 'block' : 'none';
-  profileCard.classList.remove('visible');
-}));
-
+// Segédfüggvények
 function readUsers() {
-  try { return JSON.parse(localStorage.getItem('simple_users') || '[]'); }
-  catch (e) { return []; }
+  return JSON.parse(localStorage.getItem("users") || "[]");
 }
-function writeUsers(u) { localStorage.setItem('simple_users', JSON.stringify(u)); }
-
-function encodePwd(p) { return btoa(p); } // nem biztonságos
-function findUserByNameOrEmail(val) {
+function writeUsers(data) {
+  localStorage.setItem("users", JSON.stringify(data));
+}
+function encodePwd(pwd) {
+  return btoa(pwd);
+}
+function findUser(input) {
   const users = readUsers();
-  return users.find(u =>
-    u.username.toLowerCase() === val.toLowerCase() ||
-    u.email.toLowerCase() === val.toLowerCase()
-  );
+  return users.find(u => u.username === input || u.email === input);
 }
+
+// Tab váltás
+const tabs = document.querySelectorAll(".tab");
+const panes = {
+  login: document.getElementById("login"),
+  register: document.getElementById("register")
+};
+const profileCard = document.getElementById("profileCard");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    for (let key in panes)
+      panes[key].style.display = key === tab.dataset.tab ? "block" : "none";
+    profileCard.classList.remove("visible");
+  });
+});
 
 // Regisztráció
-document.getElementById('regForm').addEventListener('submit', e => {
+document.getElementById("regForm").addEventListener("submit", e => {
   e.preventDefault();
-  const u = regUser.value.trim();
-  const em = regEmail.value.trim();
-  const p = regPass.value;
-  const msg = regMsg;
-  msg.textContent = '';
+  const username = regUser.value.trim();
+  const email = regEmail.value.trim();
+  const password = regPass.value.trim();
 
-  if (findUserByNameOrEmail(u) || findUserByNameOrEmail(em)) {
-    msg.textContent = 'A felhasználónév vagy email már foglalt.';
-    msg.className = 'error';
+  if (findUser(username) || findUser(email)) {
+    regMsg.textContent = "A felhasználónév vagy email már létezik.";
+    regMsg.style.color = "red";
     return;
   }
 
   const users = readUsers();
-  users.push({ username: u, email: em, password: encodePwd(p), created: new Date().toISOString() });
+  users.push({ username, email, password: encodePwd(password), created: new Date().toISOString() });
   writeUsers(users);
-  msg.textContent = 'Sikeres regisztráció! Most bejelentkezhetsz.';
-  msg.className = 'success';
+  regMsg.textContent = "Sikeres regisztráció!";
+  regMsg.style.color = "green";
 
-  document.querySelector('.tab[data-tab=\"login\"]').click();
-  regForm.reset();
+  setTimeout(() => {
+    document.querySelector('.tab[data-tab="login"]').click();
+    regForm.reset();
+  }, 1000);
 });
 
 // Bejelentkezés
-loginForm.addEventListener('submit', e => {
+loginForm.addEventListener("submit", e => {
   e.preventDefault();
-  const who = loginUser.value.trim();
-  const pass = loginPass.value;
-  const msg = loginMsg;
-  msg.textContent = '';
+  const input = loginUser.value.trim();
+  const pass = loginPass.value.trim();
 
-  const users = readUsers();
-  const user = users.find(u =>
-    (u.username.toLowerCase() === who.toLowerCase() ||
-     u.email.toLowerCase() === who.toLowerCase()) &&
+  const user = readUsers().find(u =>
+    (u.username === input || u.email === input) &&
     u.password === encodePwd(pass)
   );
 
   if (!user) {
-    msg.textContent = 'Hibás adatok.';
-    msg.className = 'error';
+    loginMsg.textContent = "Hibás bejelentkezési adatok.";
+    loginMsg.style.color = "red";
     return;
   }
 
-  sessionStorage.setItem('simple_current', JSON.stringify(user));
+  sessionStorage.setItem("currentUser", JSON.stringify(user));
   showProfile(user);
-  loginForm.reset();
 });
 
 function showProfile(user) {
   profileName.textContent = user.username;
   profileEmail.textContent = user.email;
-  profileJoined.textContent = 'Csatlakozott: ' + new Date(user.created).toLocaleString();
-  profileCard.classList.add('visible');
-  panes.login.style.display = 'none';
-  panes.register.style.display = 'none';
-  tabs.forEach(x => x.classList.remove('active'));
+  profileJoined.textContent = "Csatlakozott: " + new Date(user.created).toLocaleDateString("hu-HU");
+  profileCard.classList.add("visible");
+  panes.login.style.display = "none";
+  panes.register.style.display = "none";
+  tabs.forEach(t => t.classList.remove("active"));
 }
 
-logout.addEventListener('click', () => {
-  sessionStorage.removeItem('simple_current');
-  profileCard.classList.remove('visible');
-  document.querySelector('.tab[data-tab=\"login\"]').classList.add('active');
-  panes.login.style.display = 'block';
+// Kijelentkezés
+logout.addEventListener("click", () => {
+  sessionStorage.removeItem("currentUser");
+  profileCard.classList.remove("visible");
+  document.querySelector('.tab[data-tab="login"]').classList.add("active");
+  panes.login.style.display = "block";
 });
 
-deleteAccount.addEventListener('click', () => {
-  const cur = JSON.parse(sessionStorage.getItem('simple_current') || 'null');
-  if (!cur) return;
-  if (!confirm('Biztosan törlöd a fiókodat?')) return;
+// Fiók törlés
+deleteAccount.addEventListener("click", () => {
+  const user = JSON.parse(sessionStorage.getItem("currentUser"));
+  if (!user) return;
+  if (!confirm("Biztosan törlöd a fiókodat?")) return;
 
-  const users = readUsers().filter(u => u.username !== cur.username && u.email !== cur.email);
+  const users = readUsers().filter(u => u.username !== user.username);
   writeUsers(users);
-  sessionStorage.removeItem('simple_current');
-  profileCard.classList.remove('visible');
-  alert('Fiók törölve.');
+  sessionStorage.removeItem("currentUser");
+  profileCard.classList.remove("visible");
+  alert("Fiók törölve.");
 });
 
-fillTest.addEventListener('click', () => {
-  const users = readUsers();
-  if (!users.some(u => u.username === 'tester')) {
-    users.push({ username: 'tester', email: 'tester@example.com', password: encodePwd('password123'), created: new Date().toISOString() });
-    writeUsers(users);
-    alert('Teszt felhasználó létrehozva: tester / password123');
-  } else alert('Teszt felhasználó már létezik.');
-});
-
-toLogin.addEventListener('click', () => {
-  document.querySelector('.tab[data-tab=\"login\"]').click();
-});
-
-window.addEventListener('load', () => {
-  const cur = JSON.parse(sessionStorage.getItem('simple_current') || 'null');
+// Automatikus belépés
+window.addEventListener("load", () => {
+  const cur = JSON.parse(sessionStorage.getItem("currentUser"));
   if (cur) showProfile(cur);
 });

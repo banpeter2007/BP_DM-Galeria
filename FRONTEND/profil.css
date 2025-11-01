@@ -55,11 +55,6 @@ body {
         padding: 10px 20px;
     }
 
-    .navbar-logo {
-        display: block;
-        font-weight: bold;
-    }
-
     .navbar-menu {
         display: none;
         flex-direction: column;
@@ -87,105 +82,94 @@ body {
     }
 }
 
-:root {
-  --accent:#5b8def;
-  --bg:#f4f7fb;
-  --card:#ffffff;
-  --muted:#6b7280;
+/* === PROFIL FELÜLET === */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 100px; /* hogy ne lógjon bele a navbar */
+    box-sizing: border-box;
 }
 
-* { box-sizing: border-box; }
-
-body {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  background: linear-gradient(180deg, var(--bg), #e9f0ff);
-  min-height: 100vh;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
+.profile-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    text-align: center;
 }
 
-.container {
-  width: 100%;
-  max-width: 920px;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 32px;
-  align-items: center;
+.profile-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
 }
 
-.card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(39,56,90,0.06);
+/* === TABOK === */
+.tab-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #eee;
 }
 
-.tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 14px;
+.tab-buttons button {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
 }
 
-.tab {
-  flex: 1;
-  text-align: center;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  color: var(--muted);
+.tab-buttons button.active {
+    border-bottom: 3px solid brown;
+    color: brown;
 }
 
-.tab.active {
-  background: linear-gradient(90deg, var(--accent), #7aa7ff);
-  color: white;
+/* === TARTALOM === */
+.tab-content {
+    display: none;
 }
 
-form { display: grid; gap: 12px; }
-
-label { font-size: 13px; color: var(--muted); }
-
-input[type=text],
-input[type=password],
-input[type=email] {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #e6edf9;
-  background: #fbfdff;
+.tab-content.active {
+    display: block;
 }
 
-.row { display: flex; gap: 8px; }
-
-.btn {
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 0;
-  cursor: pointer;
-  font-weight: 700;
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
-.btn.primary { background: var(--accent); color: white; }
-.btn.ghost { background: transparent; border: 1px solid #e6edf9; }
-
-.note { font-size: 13px; color: var(--muted); }
-.error { color: #b00020; font-size: 13px; }
-.success { color: green; font-size: 13px; }
-
-.profile { display: none; }
-.profile.visible { display: block; }
-
-footer {
-  margin-top: 12px;
-  font-size: 12px;
-  color: var(--muted);
-  text-align: center;
+/* === GOMBOK === */
+button.primary {
+    background-color: brown;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
 }
 
-@media (max-width:880px){
-  .container { grid-template-columns: 1fr; }
+button.primary:hover {
+    background-color: #7a1d1d;
+}
+
+/* === MOBIL NÉZET === */
+@media (max-width: 768px) {
+    .profile-card {
+        width: 90%;
+    }
 }
