@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil adatok</title>
+<link rel="stylesheet" href="profil.css">
+<style>
+/* Kis kiegészítő stílus a formhoz */
+.account-container{max-width:520px;margin:40px auto;padding:20px;border-radius:10px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.account-container h2{margin-top:0}
+.form-row{margin-bottom:12px}
+.form-row input{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px}
+.actions{display:flex;gap:10px;margin-top:14px}
+.btn{padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+.btn.primary{background:#9c2a2a;color:#fff}
+.btn.ghost{background:#eee}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<ul class="navbar-menu">
+<li><a href="#">Bemutatkozás</a></li>
+<li><a href="alkotok.html">Alkotók</a></li>
+<li><a href="elerhetosegek.html">Elérhetőségeink</a></li>
+<li><a href="kosar.html">Kosár</a></li>
+<li><a href="profil.html">Profil</a></li>
+</ul>
+<div class="navbar-toggle" id="mobile-menu">☰</div>
+</nav>
+
+
+<main class="account-container">
+<h2>Profil adatok</h2>
+<p id="welcomeText">Üdvözlünk!</p>
+
+
+<div class="form-row">
+<label>Email</label>
+<input id="email" type="email" placeholder="Email">
+</div>
+
+
+<div class="form-row">
+<label>Telefonszám</label>
+<input id="phone" type="tel" placeholder="Telefonszám">
+</div>
+
+
+<div class="form-row">
+<label>Lakcím</label>
+<input id="address" type="text" placeholder="Lakcím">
+</div>
+
+
+<div class="actions">
+<button class="btn primary" id="saveBtn">Mentés</button>
+<button class="btn ghost" id="logoutBtn">Kijelentkezés</button>
+</div>
+
+
+<p id="status" style="margin-top:12px;color:green;display:none"></p>
+</main>
+
+
+<script src="../BACKEND/profiladatok.js"></script>
+</body>
+</html>
