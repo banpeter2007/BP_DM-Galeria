@@ -2,89 +2,6 @@ body {
         background-color: beige;
     }
 
-.alkotok-container {
-    padding: 10px;
-    background-color: lightgrey;
-    height: auto;
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.alkotok-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#alkoto-kepei_menu {
-    text-align: center;
-    width: 50%;
-    padding: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: large;
-}
-
-#alkoto-kepei_menu img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    display: block;
-    margin: 0 auto 10px auto;
-    border-radius: 8px;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-a:visited {
-    text-decoration: none;
-    color: black;
-}
-
-h1 {
-    text-decoration: underline;
-}
-
-/* --- RESZPONZÍVITÁS --- */
-
-/* Közepes kijelzők (tablet) */
-@media (max-width: 900px) {
-    .alkotok-container {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-
-    #alkoto-kepei_menu img {
-        max-width: 250px;
-    }
-}
-
-/* Kis kijelzők (mobil) */
-@media (max-width: 600px) {
-    .alkotok-container {
-        width: 95%;
-        margin: 0 auto;
-        padding: 5px;
-    }
-
-    #alkoto-kepei_menu {
-        display: block;
-        width: 100%; /* egy oszlop */
-        padding: 5px;
-    }
-
-    #alkoto-kepei_menu img {
-        max-width: 90%;
-    }
-}
-
 /* === FELSŐ NAVIGÁCIÓ === */
 .navbar {
     background-color: brown; /* kékes-szürke háttér */
@@ -100,6 +17,7 @@ h1 {
     font-size: 0.9rem;
     letter-spacing: 0.5px;
     border-bottom: olive;
+    margin: 10px;
 }
 
 .navbar-menu {
@@ -123,6 +41,22 @@ h1 {
     border-bottom: 2px solid orange;
 }
 
+.alkotok-container {
+    padding: 10px;
+    background-color: lightgrey;
+    height: auto;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.alkoto-kepe {
+    float: right;
+}
+
 /* --- Hamburger ikon (mobilon) --- */
 .navbar-toggle {
     display: none;
@@ -136,11 +70,6 @@ h1 {
     .navbar {
         justify-content: space-between;
         padding: 10px 20px;
-    }
-
-    .navbar-logo {
-        display: block;
-        font-weight: bold;
     }
 
     .navbar-menu {

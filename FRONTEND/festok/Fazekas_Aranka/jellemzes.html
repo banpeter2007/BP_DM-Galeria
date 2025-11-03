@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alkotók</title>
+    <link rel="stylesheet" href="jellemzes.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="../../alkotok.html">Alkotók</a></li>
+        </ul>
+        <div class="navbar-toggle" id="mobile-menu">
+            ☰
+        </div>
+    </nav>
+
+<div class="alkotok-container">    
+    <div class="alkoto-kepe">
+        <img src="kep.webp" alt="Fazekas Aranka" title="Fazekas Aranka" height="100px" width="120px">
+    </div>
+
+    <h1>Fazekas Aranka</h1>
+
+    <p>"A festészetben szeretem a modern vonalvezetést, amelyek mind a portréban, mind az absztrakt témában jelen vannak képeimen."</p>
+</div>
+
+<script>
+    document.getElementById("mobile-menu").addEventListener("click", function() {
+    document.querySelector(".navbar-menu").classList.toggle("active");
+    });
+    </script>
+</body>
+</html>

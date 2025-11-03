@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alkotók</title>
+    <link rel="stylesheet" href="jellemzes.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="../../alkotok.html">Alkotók</a></li>
+        </ul>
+        <div class="navbar-toggle" id="mobile-menu">
+            ☰
+        </div>
+    </nav>
+
+<div class="alkotok-container">    
+    <div class="alkoto-kepe">
+        
+    </div>
+
+    <h1>SAGITTARIUS</h1>
+
+    <p>Modern stílusú akrilfestmény feszített vászonra.</p>
+</div>
+
+<script>
+    document.getElementById("mobile-menu").addEventListener("click", function() {
+    document.querySelector(".navbar-menu").classList.toggle("active");
+    });
+    </script>
+</body>
+</html>
