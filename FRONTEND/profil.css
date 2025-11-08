@@ -1,10 +1,17 @@
+/* === ALAP BEÁLLÍTÁSOK === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
         background-color: beige;
     }
 
-/* === FELSŐ NAVIGÁCIÓ === */
+/* === NAVIGÁCIÓ === */
 .navbar {
-    background-color: brown; /* kékes-szürke háttér */
+    background-color: brown;
     color: white;
     display: flex;
     justify-content: center;
@@ -13,18 +20,15 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
-    border-bottom: olive;
+    border-bottom: 3px solid olive;
 }
 
 .navbar-menu {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin: 0;
-    padding: 0;
 }
 
 .navbar-menu li a {
@@ -46,6 +50,7 @@ body {
     font-size: 1.8rem;
     cursor: pointer;
     color: white;
+    margin-left: 20px;
 }
 
 /* --- RESZPONZÍV MENÜ --- */
