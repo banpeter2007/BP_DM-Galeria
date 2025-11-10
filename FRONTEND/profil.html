@@ -1,69 +1,50 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
-    <link rel="stylesheet" href="profil.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil</title>
+  <link rel="stylesheet" href="profil.css">
 </head>
 <body>
-    <nav class="navbar">
-        <ul class="navbar-menu">
-            <li><a href="bemutatkozas.html">Bemutatkozás</a></li>
-            <li><a href="alkotok.html">Alkotók</a></li>
-            <li><a href="elerhetosegek.html">Elérhetőségeink</a></li>
-            <li><a href="kosar.html">Webshop</a></li>
-            <li><a href="profil.html">Profil</a></li>
-        </ul>
-        <div class="navbar-toggle" id="mobile-menu">☰</div>
-    </nav>
+  <nav class="navbar">
+    <ul class="navbar-menu">
+      <li><a href="bemutatkozas.html">Bemutatkozás</a></li>
+      <li><a href="alkotok.html">Alkotók</a></li>
+      <li><a href="elerhetosegek.html">Elérhetőségeink</a></li>
+      <li><a href="kosar.html">Webshop</a></li>
+      <li><a href="profil.html">Profil</a></li>
+    </ul>
+    <div class="navbar-toggle" id="mobile-menu">☰</div>
+  </nav>
 
-    <main class="profile-container">
-        <div class="profile-card">
-            <div class="tab-buttons">
-                <button class="active" onclick="showTab('login')">Bejelentkezés</button>
-                <button onclick="showTab('register')">Regisztráció</button>
-            </div>
+  <main class="profile-container">
+    <div class="profile-card">
 
-            <div id="login" class="tab-content active">
-                <input type="text" placeholder="Felhasználónév vagy email">
-                <input type="password" placeholder="Jelszó">
-                <div class="button-row">
-                    <button class="primary">Bejelentkezés</button>
-                </div>
-            </div>
+      <div class="tab-buttons">
+        <button class="active" onclick="showTab('login', event)">Bejelentkezés</button>
+        <button onclick="showTab('register', event)">Regisztráció</button>
+      </div>
 
-            <div id="register" class="tab-content">
-                <input type="text" placeholder="Felhasználónév">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Jelszó">
-                <button class="primary">Regisztráció</button>
-            </div>
+      <div id="login" class="tab-content active">
+        <input type="text" placeholder="Felhasználónév vagy email">
+        <input type="password" placeholder="Jelszó">
+        <div class="button-row">
+          <button class="primary">Bejelentkezés</button>
         </div>
-    </main>
+      </div>
 
-    <script>
-        document.getElementById("mobile-menu").addEventListener("click", function() {
-            document.querySelector(".navbar-menu").classList.toggle("active");
-        });
+      <div id="register" class="tab-content">
+        <input type="text" placeholder="Felhasználónév">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Jelszó">
+        <button class="primary">Regisztráció</button>
+      </div>
 
-        function showTab(tabName) {
-            const tabs = document.querySelectorAll('.tab-content');
-            const buttons = document.querySelectorAll('.tab-buttons button');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            buttons.forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
+    </div>
+  </main>
 
-    <script>
-    document.getElementById("mobile-menu").addEventListener("click", function() {
-    document.querySelector(".navbar-menu").classList.toggle("active");
-    });
-    </script>
-
-    <script src="../BACKEND/profil.js"></script>
-
+  <!-- Külső JavaScript fájl -->
+  <script src="../BACKEND/profil.js"></script>
 </body>
 </html>
