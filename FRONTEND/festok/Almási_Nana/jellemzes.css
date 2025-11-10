@@ -4,7 +4,7 @@ body {
 
 /* === FELSŐ NAVIGÁCIÓ === */
 .navbar {
-    background-color: brown; /* kékes-szürke háttér */
+    background-color: brown;
     color: white;
     display: flex;
     justify-content: center;

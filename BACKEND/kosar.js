@@ -13,13 +13,14 @@ function renderProducts(products){
     const el = document.createElement('article');
     el.className = 'card';
     el.innerHTML = `
-      <div class="product-img">📦</div>
-      <h3 class="product-name">${p.name}</h3>
-      <div class="meta">${p.desc || ''}</div>
-      <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center">
-        <div class="price">${fmt(p.price)}</div>
-        <button data-id="${p.id}">Hozzáad</button>
-      </div>`;
+    <div class="product-img"><img src="${p.file}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
+    <h3 class="product-name">${p.name}</h3>
+    <div class="meta">${p.desc || ''}</div>
+    <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center">
+      <div class="price">${fmt(p.price)}</div>
+      <button data-id="${p.id}">Hozzáad</button>
+    </div>`;
+
     productsEl.appendChild(el);
   });
 }
@@ -105,7 +106,7 @@ document.getElementById('checkoutBtn').addEventListener('click', () => {
   let total = 0, lines = [];
   cart.forEach(({product,qty})=>{ total += product.price * qty; lines.push(`${product.name} × ${qty} = ${fmt(product.price*qty)}`); });
   const summary = lines.join('\n');
-  alert('Rendelés összegzése:\n\n' + summary + '\n\nÖsszesen: ' + fmt(total) + '\n\n(Valódi fizetés nincs a demóban)');
+  alert('Rendelés összegzése:\n\n' + summary + '\n\nÖsszesen: ' + fmt(total) + '\n\n(Valódi fizetés még nem elérhető az elkészült oldalunkon!)');
 });
 
 // Dupla kattintás gyors hozzáadáshoz
@@ -114,13 +115,13 @@ productsEl.addEventListener('dblclick', e =>{
 });
 
 // Terméklista betöltése (példa: külső JSON-ból)
-fetch('products.json')
+fetch('../BACKEND/products.json')
   .then(res => res.json())
   .then(data => {
     products = data;
     renderProducts(products);
   })
-  .catch(()=>{
+  .catch(()=> {
     productsEl.innerHTML = '<p>Nem sikerült betölteni a termékeket.</p>';
   });
 

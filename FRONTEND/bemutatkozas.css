@@ -1,0 +1,466 @@
+/* === ALAP BEÁLLÍTÁSOK === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: beige;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* === NAVIGÁCIÓ === */
+.navbar {
+    background-color: brown;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid olive;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    transition: color 0.3s ease, border-bottom 0.2s ease;
+    padding: 5px 0;
+}
+
+.navbar-menu li a:hover {
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+
+/* --- Hamburger ikon (mobilon) --- */
+.navbar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+    margin-left: 20px;
+}
+
+/* --- RESZPONZÍV MENÜ --- */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: brown;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+}
+
+/* === HERO SZEKCIÓ === */
+.jumbotron-fluid {
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+.jumbotron-fluid h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.jumbotron-fluid .title {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* === BELSŐ TARTALOM === */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.intro {
+    text-align: justify;
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.content p {
+    margin-bottom: 1rem;
+}
+
+/* === KÖZREMŰKÖDŐK === */
+.our-team {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.our-team h2 {
+    color: brown;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.our-team .title {
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.team-tabs {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.nav.justify-content-center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #eee;
+}
+
+.nav-link {
+    color: brown;
+    font-weight: bold;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s, border-bottom 0.2s;
+}
+
+.nav-link:hover {
+    color: orange;
+}
+
+.nav-link.active {
+    border-bottom: 3px solid brown;
+}
+
+.tab-content {
+    margin-top: 40px;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.team-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid brown;
+    margin-bottom: 15px;
+}
+
+.team-tabs h5 {
+    margin: 10px 0 5px;
+    color: brown;
+}
+
+.team-tabs p em {
+    color: #777;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* === CÉLUNK === */
+.our-mission {
+    background-color: #f8f1d4;
+    padding: 60px 20px;
+}
+
+.our-mission h2 {
+    color: brown;
+    margin-bottom: 20px;
+}
+
+.our-mission p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* === IDÉZETEK === */
+/* === IDÉZETEK (QUOTES) === */
+.quotes {
+  background-color: #fff;
+  padding: 80px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.quotes-title {
+  color: brown;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.quotes-slider {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.quotes blockquote {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+  margin: 0;
+}
+
+.quotes blockquote.active {
+  display: block;
+  opacity: 1;
+}
+
+.quotes blockquote p {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.quotes blockquote cite {
+  display: block;
+  color: brown;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* Nyilak */
+.quote-prev,
+.quote-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: brown;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.quote-prev:hover,
+.quote-next:hover {
+  color: orange;
+}
+
+.quote-prev { left: 0; }
+.quote-next { right: 0; }
+
+/* Pöttyök */
+.quote-dots {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+  margin: 0 5px;
+  background-color: #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active,
+.dot:hover {
+  background-color: brown;
+}
+
+/* Mobilbarát */
+@media (max-width: 768px) {
+  .quote-prev, .quote-next {
+    font-size: 1.6rem;
+  }
+
+  .quotes blockquote p {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* === LÁBLÉC === */
+footer {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+footer h2 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+footer .social-networks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+footer img {
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+footer img:hover {
+    transform: scale(1.1);
+}
+
+/* === MOBIL NÉZET === */
+@media (max-width: 768px) {
+    .jumbotron-fluid h1 {
+        font-size: 1.8rem;
+    }
+
+    .team-img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .our-mission p {
+        font-size: 1rem;
+    }
+}
+
+/* === KÖZREMŰKÖDŐK TAB RÉSZ === */
+.our-team {
+    background-color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.our-team h2 {
+    color: brown;
+    margin-bottom: 10px;
+}
+
+.our-team .title {
+    font-style: italic;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-nav li {
+    list-style: none;
+    cursor: pointer;
+    color: brown;
+    font-weight: bold;
+    transition: color 0.2s, border-bottom 0.3s;
+}
+
+.tab-nav li.active {
+    border-bottom: 3px solid brown;
+    color: brown;
+}
+
+.tab-content {
+    display: none;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.team-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid brown;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.tab-content h5 {
+    color: brown;
+    font-size: 1.2rem;
+}
+
+.tab-content p {
+    margin-top: 10px;
+    line-height: 1.6;
+}
