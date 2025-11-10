@@ -23,6 +23,8 @@ body {
     font-size: 0.9rem;
     letter-spacing: 0.5px;
     border-bottom: 3px solid olive;
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 .navbar-menu {
@@ -177,4 +179,38 @@ button.primary:hover {
     .profile-card {
         width: 90%;
     }
+}
+
+/* === LÁBLÉC === */
+footer {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+footer h2 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+footer .social-networks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+footer img {
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+footer img:hover {
+    transform: scale(1.1);
+}
+
+.text-uppercase {
+    text-transform: uppercase;
 }

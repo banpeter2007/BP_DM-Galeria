@@ -25,6 +25,31 @@ function renderProducts(products){
   });
 }
 
+// Kép kinagyítása kattintásra, az eredeti méretének kétszeresére
+productsEl.addEventListener('click', e => {
+  const imgEl = e.target.closest('.product-img img'); if(!imgEl) return;
+  const src = imgEl.src;
+  const modal = document.createElement('div');
+  modal.style.position = 'fixed';
+  modal.style.top = '0';
+  modal.style.left = '0';
+  modal.style.width = '100%';
+  modal.style.height = '100%';
+  modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+  modal.style.display = 'flex';
+  modal.style.justifyContent = 'center';  
+  modal.style.alignItems = 'center';
+  modal.style.cursor = 'zoom-out';
+  const img = document.createElement('img');
+  img.src = src;
+  img.style.maxWidth = '90%';
+  img.style.maxHeight = '90%';
+  img.style.transform = 'scale(2)';
+  modal.appendChild(img);
+  modal.addEventListener('click', () => { document.body.removeChild(modal); });
+  document.body.appendChild(modal);
+});
+
 // Esemény: hozzáadás
 productsEl.addEventListener('click', e => {
   const btn = e.target.closest('button'); if(!btn) return;
